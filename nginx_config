@@ -1,0 +1,17 @@
+upstream studiebeskeder-backend {
+    server unix:///var/run/web/studiebeskeder.sock;
+}
+
+server {
+    server_name hostname.her.dk;
+
+    root /srv/hostname.her.dk;
+
+    access_log /srv/hostname.her.dk/logs/access.log;
+    error_log  /srv/hostname.her.dk/logs/error.log;
+
+    location / {
+        uwsgi_pass studiebeskeder-backend;
+        include uwsgi_params;
+    }
+}

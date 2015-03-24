@@ -1,0 +1,7 @@
+uwsgi:
+    uid: www-data
+    gid: www-data
+    socket: /var/run/web/studiebeskeder.sock
+    chdir: /srv/hostname.her.dk
+    psgi: /srv/hostname.her.dk/studiebeskeder.pl
+    workers: 1
