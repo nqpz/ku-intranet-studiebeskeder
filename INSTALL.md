@@ -13,9 +13,9 @@
 1. Kør: `cpan -i CHI Digest::SHA FindBin HTML::Query IO::All Mojolicious WWW::Mechanize`
 1. Opret mappen `/var/run/web/`:
 
-    sudo mkdir /var/run/web
-    sudo chown www-data:www-data /var/run/web
-    sudo chmod 0755 /var/run/web
+        sudo mkdir /var/run/web
+        sudo chown www-data:www-data /var/run/web
+        sudo chmod 0755 /var/run/web
 
 1. Opret filen `.ku_credentials`, og skriv `<ku_brugernavn>:<ku_løsen>` i den.
 1. Ret `nginx_config` så `hostname.her.dk` erstattes med `<subdomain>`.
