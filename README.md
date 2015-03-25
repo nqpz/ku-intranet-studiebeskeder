@@ -1,6 +1,6 @@
 # Webservice til at udtrække studiebeskeder fra KUs intranet
 
-Denne tjeneste udtrækker studibeskedsmetadata.
+Denne tjeneste udtrækker studiebeskedsmetadata.
 
 
 # Installationsguide
