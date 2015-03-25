@@ -1,3 +1,2 @@
-logs
-.ku_credentials
-hypnotoad.pid
+/.ku_credentials
+/gen.json
