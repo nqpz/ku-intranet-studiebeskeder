@@ -2,4 +2,4 @@
 
 base="$(dirname "$0")"
 
-"$base/find.pl" | "$base/format.py" > gen.json
+"$base/find.pl" | "$base/format.py" > "$base"/gen.json
