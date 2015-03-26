@@ -31,7 +31,7 @@ sub login {
     }
 }
 
-sub get_message_text {
+sub get_message_html {
     my $url = shift;
     $mech->get($url);
     my $q = Query( text => $mech->response->decoded_content );
@@ -52,13 +52,13 @@ sub messages {
         my $url = $a->attr('href');
         my $origin = $q->query('.NameDate')->first;
         my ($source, $date) = $origin->as_text =~ qr/[\s\n\r]*(.*?)[\s\n\r]*\|[\s\n\r]*(\d{2}-\d{2}-\d{4})/s;
-        my $text = get_message_text($url);
+        my $html = get_message_html($url);
         push( @$res, {
             title => $title,
             url => $url,
             source => $source,
             date => $date,
-            text => $text
+            html => $html
               } );
     }
     return $res;
