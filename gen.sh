@@ -4,4 +4,8 @@ set -e # Exit on first error.
 
 base="$(dirname "$0")"
 
-"$base/find.pl" | "$base/format.py" > "$base"/gen.json
+out=$(mktemp)
+
+"$base/find.pl" | "$base/format.py" > $out
+
+cat $out > "$base"/gen.json
