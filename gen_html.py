@@ -21,23 +21,39 @@ body {
 }
 
 .nyhed {
-  width: 460px;
-  height: 325px;
+  width: 620px;
+  height: 490px;
   float: left;
   margin: 5px;
   padding: 3px;
   overflow: hidden;
   border: 1px dotted silver;
-  background-color: lightblue;
+  background-color: azure;
 }
 
 h1, h2, h3, p {
   margin: 0 0 5px 0;
 }
 
+p {
+  25px;
+}
+
+h3 {
+  26px;
+}
+
+h2 {
+  28px;
+}
+
+h1 {
+  30px;
+}
+
 h1.container {
   margin: 5px 0 0 0;
-  font-size: 35px;
+  font-size: 50px;
   font-family: Gentium;
   font-style: italic;
   color: red;
@@ -46,12 +62,12 @@ h1.container {
     
 h2.container {
   margin: 0;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 h3.container {
   margin: 0;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .date {
@@ -68,7 +84,7 @@ h3.container {
 ''')
 
     with open(os.path.join(base, 'gen.json')) as j:
-        for nyhed in json.load(j, encoding='utf-8')[:(4 * 3)]:
+        for nyhed in json.load(j, encoding='utf-8')[:(3 * 2)]:
             f.write(('''
 <div class="nyhed">
   <h2 class="container">%s</h2>
