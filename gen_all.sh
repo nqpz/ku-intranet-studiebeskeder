@@ -6,4 +6,4 @@ base="$(dirname "$0")"
 
 ./gen_json.sh
 
-./gen_html.sh
+./gen_html.py
