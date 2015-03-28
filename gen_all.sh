@@ -4,6 +4,6 @@ set -e # Exit on first error.
 
 base="$(dirname "$0")"
 
-./gen_json.sh
+"$base/gen_json.sh"
 
-./gen_html.py
+"$base/gen_html.py"
