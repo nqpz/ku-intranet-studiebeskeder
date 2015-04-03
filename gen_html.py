@@ -6,12 +6,7 @@ import json
 import random
 
 
-def shorten(html):
-    return html
-
-base = os.path.dirname(__file__)
-with open(os.path.join(base, 'gen.html'), 'w') as f:
-    f.write('''<!doctype html>
+sys.stdout.write('''<!doctype html>
 <html>
   <head>
     <title>Studiebeskeder</title>
@@ -84,11 +79,11 @@ h3.container {
     <div id="nyheder">
 ''')
 
-    with open(os.path.join(base, 'gen.json')) as j:
-        nyheder = json.load(j, encoding='utf-8')
-        random.shuffle(nyheder)
-        for nyhed in nyheder[:(3 * 2)]:
-            f.write(('''
+with open(os.path.join(base, 'gen.json')) as j:
+    nyheder = json.load(j, encoding='utf-8')
+    random.shuffle(nyheder)
+    for nyhed in nyheder[:(3 * 2)]:
+        sys.stdout.write(('''
 <div class="nyhed">
   <h2 class="container">%s</h2>
   <hr>
@@ -97,9 +92,9 @@ h3.container {
   <hr>
 %s
 </div>
-''' % (nyhed['title'], nyhed['source'], nyhed['date'], shorten(nyhed['html']))).encode('utf-8'))
+''' % (nyhed['title'], nyhed['source'], nyhed['date'], nyhed['html'])).encode('utf-8'))
     
-    f.write('''    </div>
+sys.stdout.write('''    </div>
   </body>
 </html>
 ''')
