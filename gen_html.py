@@ -81,7 +81,7 @@ h3.container {
 ''')
 
 with open(os.path.join(base, 'gen.json')) as j:
-    nyheder = json.load(j, encoding='utf-8')
+    nyheder = json.load(j, encoding='utf-8')[:(3 * 4)]
     random.shuffle(nyheder)
     for nyhed in nyheder[:(3 * 2)]:
         sys.stdout.write(('''
