@@ -3,6 +3,7 @@
 import os
 import sys
 import json
+import random
 
 
 def shorten(html):
@@ -84,7 +85,9 @@ h3.container {
 ''')
 
     with open(os.path.join(base, 'gen.json')) as j:
-        for nyhed in json.load(j, encoding='utf-8')[:(3 * 2)]:
+        nyheder = json.load(j, encoding='utf-8')
+        random.shuffle(nyheder)
+        for nyhed in nyheder[:(3 * 2)]:
             f.write(('''
 <div class="nyhed">
   <h2 class="container">%s</h2>
