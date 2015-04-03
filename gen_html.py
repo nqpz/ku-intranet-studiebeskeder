@@ -5,6 +5,7 @@ import sys
 import json
 import random
 
+base = os.path.dirname(__file__)
 
 sys.stdout.write('''<!doctype html>
 <html>
