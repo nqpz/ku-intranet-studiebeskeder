@@ -13,13 +13,14 @@ sys.stdout.write('''<!doctype html>
     <title>Studiebeskeder</title>
     <style type="text/css">
 body {
+  overflow: hidden;
   margin: 0;
   font-family: 'URW Palladio L';
 }
 
 .nyhed {
-  width: 620px;
-  height: 490px;
+  width: 940px;
+  height: 970px;
   float: left;
   margin: 5px;
   padding: 3px;
@@ -32,25 +33,9 @@ h1, h2, h3, p {
   margin: 0 0 5px 0;
 }
 
-p {
-  25px;
-}
-
-h3 {
-  26px;
-}
-
-h2 {
-  28px;
-}
-
-h1 {
-  30px;
-}
-
 h1.container {
   margin: 5px 0 0 0;
-  font-size: 50px;
+  font-size: 70px;
   font-family: Gentium;
   font-style: italic;
   color: red;
@@ -59,12 +44,28 @@ h1.container {
     
 h2.container {
   margin: 0;
-  font-size: 40px;
+  font-size: 50px;
 }
 
 h3.container {
   margin: 0;
+  font-size: 40px;
+}
+
+p {
+  font-size: 24px;
+}
+
+h3 {
   font-size: 30px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h1 {
+  font-size: 41px;
 }
 
 .date {
@@ -81,9 +82,9 @@ h3.container {
 ''')
 
 with open(os.path.join(base, 'gen.json')) as j:
-    nyheder = json.load(j, encoding='utf-8')[:(3 * 4)]
+    nyheder = json.load(j, encoding='utf-8')[:10]
     random.shuffle(nyheder)
-    for nyhed in nyheder[:(3 * 2)]:
+    for nyhed in nyheder[:2]:
         sys.stdout.write(('''
 <div class="nyhed">
   <h2 class="container">%s</h2>
