@@ -19,7 +19,7 @@ body {
 }
 
 .nyhed {
-  width: 940px;
+  width: 930px;
   height: 970px;
   float: left;
   margin: 5px;
