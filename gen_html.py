@@ -14,87 +14,66 @@ sys.stdout.write('''<!doctype html>
     <style type="text/css">
 body {
   overflow: hidden;
+  font-family: 'URW Palladio L', Gentium, sans;
+  background-color: #f2ffee;
+  color: #000464;
+}
+
+* {
   margin: 0;
-  font-family: 'URW Palladio L';
-}
-
-.nyhed {
-  width: 930px;
-  height: 970px;
-  float: left;
-  margin: 5px;
-  padding: 3px;
-  overflow: hidden;
-  border: 1px dotted silver;
-  background-color: azure;
-}
-
-h1, h2, h3, p {
-  margin: 0 0 5px 0;
-}
-
-h1.container {
-  margin: 5px 0 0 0;
-  font-size: 70px;
-  font-family: Gentium;
-  font-style: italic;
-  color: red;
-  text-align: center;
-}
-    
-h2.container {
-  margin: 0;
-  font-size: 50px;
-}
-
-h3.container {
-  margin: 0;
-  font-size: 40px;
-}
-
-p {
-  font-size: 24px;
-}
-
-h3 {
-  font-size: 30px;
-}
-
-h2 {
-  font-size: 36px;
+  padding: 0;
 }
 
 h1 {
-  font-size: 41px;
+  text-align: center;
+  font-family: Gentium;
+  font-size: 90px;
+  font-style: italic;
+  font-weight: bold;
+  color: red;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 40px;
+  margin: 0 5px;
+}
+
+h2 div {
+  float: left;
 }
 
 .date {
-  font-style: italic;
-  color: #333;
+  width: 290px;
+  margin-right: 10px;
+  color: grey;
   text-align: right;
+}
+
+.title {
+  width: 1600px;
 }
 
     </style>
   </head>
   <body>
-    <h1 class="container">Studiebeskeder</h1>
+    <h1>Studiebeskeder fra KUnet</h1>
     <div id="nyheder">
 ''')
 
 with open(os.path.join(base, 'gen.json')) as j:
-    nyheder = json.load(j, encoding='utf-8')[:10]
-    random.shuffle(nyheder)
-    for nyhed in nyheder[:2]:
+    nyheder = json.load(j, encoding='utf-8')[:14]
+    for i in range(len(nyheder)):
+        nyhed = nyheder[i]
+        h2size = 60 - i * 2
         sys.stdout.write(('''
-<div class="nyhed">
-  <h2 class="container">%s</h2>
+<div>
   <hr>
-  <h3 class="container">%s</h3>
-  <h3 class="container date">%s</h3>
-  <hr>
-%s
+  <h2 style="font-size: ''' + str(h2size) + '''px;"><div class="date">%s</div><div class="title">%s</div></h2>
+  <div style="clear: both;"></div>
 </div>
-''' % (nyhed['title'], nyhed['source'], nyhed['date'], nyhed['html'])).encode('utf-8'))
+''' % (nyhed['date'], nyhed['title'])).encode('utf-8'))
     
 sys.stdout.write('''    </div>
   </body>
