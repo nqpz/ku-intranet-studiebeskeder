@@ -10,6 +10,7 @@ base = os.path.dirname(__file__)
 sys.stdout.write('''<!doctype html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>Studiebeskeder</title>
     <style type="text/css">
 body {
@@ -62,12 +63,11 @@ h2 div {
     <div id="nyheder">
 ''')
 
-with open(os.path.join(base, 'gen.json')) as j:
-    nyheder = json.load(j, encoding='utf-8')[:14]
-    for i in range(len(nyheder)):
-        nyhed = nyheder[i]
-        h2size = 60 - i * 2
-        sys.stdout.write(('''
+nyheder = json.load(sys.stdin, encoding='utf-8')[:14]
+for i in range(len(nyheder)):
+    nyhed = nyheder[i]
+    h2size = 60 - i * 2
+    sys.stdout.write(('''
 <div>
   <hr>
   <h2 style="font-size: ''' + str(h2size) + '''px;"><div class="date">%s</div><div class="title">%s</div></h2>
